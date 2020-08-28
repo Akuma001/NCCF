@@ -17,21 +17,27 @@ for (let i = 0; i < btn.length; i++) {
   };
 }
 
-
 let varc = 0;
-let slider = function(){
-  
-    if(varc === 5){
-      varc = 0
-    }
-  
-    gallery.src = images[varc];
-    let current = document.getElementsByClassName("active")[0];
-    current.className = current.className.replace("active", "");
-    btn[varc].className += " active";
-    
-    varc = varc + 1;
-    console.log(varc)
-}
+let slider = function () {
+  if (varc === 5) {
+    varc = 0;
+  }
+
+  gallery.src = images[varc];
+  let current = document.getElementsByClassName("active")[0];
+  current.className = current.className.replace("active", "");
+  btn[varc].className += " active";
+
+  varc = varc + 1;
+  console.log(varc);
+};
 
 window.setInterval(slider, 5000);
+
+$(".gallery").magnificPopup({
+  delegate: "a",
+  type: "image",
+  gallery: {
+    enabled: true,
+  },
+});
