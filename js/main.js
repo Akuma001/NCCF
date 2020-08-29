@@ -39,3 +39,12 @@ for (let i = 0; i < btn.length; i++) {
 function stopTimer() {
   clearInterval(timer);
 }
+
+$(".gallery").magnificPopup({
+  delegate: "a",
+  type: "image",
+  gallery: {
+    enabled: true,
+  },
+});
+

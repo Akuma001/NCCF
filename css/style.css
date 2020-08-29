@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 body {
   background: linear-gradient(45deg, #22046b, #e14e42);
@@ -442,4 +442,78 @@ section
   .inputBox
   input[type="submit"]:hover {
   background: #ff568c;
+}
+
+.gallery-section {
+  width: 100%;
+  padding: 60px 0;
+}
+
+.inner-width {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.gallery-section h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.border {
+  width: 180px;
+  height: 4px;
+  background: #fff;
+  margin: 60px auto;
+}
+
+.gallery-section .gallery {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+
+.gallery-section .image {
+  flex: 25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-section .image img {
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.gallery-section .image:hover img {
+  transform: scale(1.4) rotate(15deg);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+}
+footer p {
+  padding: 10px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 960px) {
+  .gallery-section .image {
+    flex: 33.33%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-section .image {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-section .image {
+    flex: 100%;
+  }
 }
