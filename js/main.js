@@ -8,31 +8,37 @@ var images = new Array(
   "img/PAGE2.jpg"
 );
 
+let currentSlide = 0;
+
+function selectSlide(slide) {
+  gallery.src = images[slide];
+  let current = document.getElementsByClassName("active")[0];
+  current.className = current.className.replace("active", "");
+}
+
+function slider() {
+  if (currentSlide === 5) currentSlide = 0;
+  selectSlide(currentSlide);
+  btn[currentSlide].className += " active";
+  currentSlide = currentSlide + 1;
+}
+
+let timer = setInterval(slider, 5000);
+
 for (let i = 0; i < btn.length; i++) {
   btn[i].onclick = function () {
-    gallery.src = images[i];
-    let current = document.getElementsByClassName("active")[0];
-    current.className = current.className.replace("active", "");
+    stopTimer();
+    currentSlide = i;
+    selectSlide(i);
     this.className += " active";
+    timer = setInterval(slider, 5000);
+    console.log(timer);
   };
 }
 
-let varc = 0;
-let slider = function () {
-  if (varc === 5) {
-    varc = 0;
-  }
-
-  gallery.src = images[varc];
-  let current = document.getElementsByClassName("active")[0];
-  current.className = current.className.replace("active", "");
-  btn[varc].className += " active";
-
-  varc = varc + 1;
-  console.log(varc);
-};
-
-window.setInterval(slider, 5000);
+function stopTimer() {
+  clearInterval(timer);
+}
 
 $(".gallery").magnificPopup({
   delegate: "a",
@@ -41,3 +47,4 @@ $(".gallery").magnificPopup({
     enabled: true,
   },
 });
+
